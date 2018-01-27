@@ -1,4 +1,8 @@
+<!-- Fichier contenant les commandes pour installer Arch Linux sur une nouvelle machine -->
+<!-- Configuration personnelle avec XFCE4 comme environnement de bureau et SDDM comme gestionnaire de connexion -->
+
 ## Liste des commandes pour installer Arch Linux (Janvier 2018):
+![Bureau](screenshot-bureau.png)
 
 #### 1: Passer le clavier en français:
 - loadkeys fr-pc (loqdkeys fr)pc en Qwerty)
