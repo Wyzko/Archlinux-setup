@@ -123,6 +123,30 @@
 - systemctl enable sddm.service
 - systemctl start sddm.service
 
+#### 10: Setup de base (pour i3)
+###### 10.1: Ajuster la résolution
+- pacman -S xorg-xrandr arandr
+
+Modifier la résolution en lançant arandr (voir le menu Ecrans/Résolution).
+
+###### 10.2: Mettre le clavier en français dans le gestionnaire de connexion
+- nano /etc/X11/xorg.conf.d/00-keyboard-layout.conf
+
+```
+Section "InputClass"
+				Identifier												"Keyboard Layout"
+				MatchIsKeyboard				"yes"
+				Option														"XkbLayout"  "fr"
+				Option														"XkbVariant"  "latin9"
+EndSection
+```
+
+###### 10.3: Utilitaires
+- pacman -S ranger thunar lxappearance
+
+Ranger et Thunar sont explorateurs de fichiers.  
+LXAppearance est un gestionnaire de thème (changement de thème, d'icones et de polices)
+
 #### Extra
 ###### Fonts
 - pacman -S noto-fonts ttf-linux-libertine ttf-inconsolata xorg-fonts-type1 ttf-dejavu artwiz-fonts font-bh-ttf font-bitstream-speedo gsfonts sdl_ttf ttf-bitstream-vera ttf-cheapskate ttf-liberation ttf-freefont ttf-arphic-uming ttf-baekmuk
