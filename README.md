@@ -67,20 +67,17 @@
 - echo NomDeLaMachine > /etc/hostname
 - echo '127.0.1.1 NomDeLaMachine.localdomain NomDeLaMachine' >> /etc/hosts
 
-###### 6.3: Heure locale (si pas fait au début)
-- ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
-
-###### 6.4: Modification de la langue du système et de la configuration du clavier
+###### 6.3: Modification de la langue du système et de la configuration du clavier
 - nano /etc/locale.gen (décommenter la locale)
 - locale-gen
-- echo LANG="fr_FR.UTF-8" > /etc/locale.conf
+- echo LANG=fr_FR.UTF-8 > /etc/locale.conf
 - export LANG=fr_FR.UTF-8
 - echo KEYMAP=fr > /etc/vconsole.conf
 
-###### 6.5: RAMdisk
+###### 6.4: RAMdisk
 - mkinitcpio -p linux
 
-###### 6.6: Modification du mot de passe de root
+###### 6.5: Modification du mot de passe de root
 - passwd
 
 #### 7: Installation d'un booloader (Grub)
@@ -134,10 +131,10 @@ Modifier la résolution en lançant arandr (voir le menu Ecrans/Résolution).
 
 ```
 Section "InputClass"
-				Identifier												"Keyboard Layout"
-				MatchIsKeyboard				"yes"
-				Option														"XkbLayout"  "fr"
-				Option														"XkbVariant"  "latin9"
+	Identifier	"Keyboard Layout"
+	MatchIsKeyboard	"yes"
+	Option	"XkbLayout"  "fr"
+	Option	"XkbVariant"  "latin9"
 EndSection
 ```
 
@@ -148,6 +145,17 @@ Ranger et Thunar sont explorateurs de fichiers.
 LXAppearance est un gestionnaire de thème (changement de thème, d'icones et de polices)
 
 #### Extra
+###### Pacman
+- Ajouter 'ILoveCandy' dans la partie [options] du fichier pacman.conf
+- Ajouter le server archlinuxfr pour utiliser les paquets AUR avec yaourt:
+
+```
+[archlinuxfr]
+SigLevel = Never
+Server = https://repo.archlinux.fr/$arch
+```
+-pacman -Syu (pour mettre à jour les dépôts)
+
 ###### Fonts
 - pacman -S noto-fonts ttf-linux-libertine ttf-inconsolata xorg-fonts-type1 ttf-dejavu artwiz-fonts font-bh-ttf font-bitstream-speedo gsfonts sdl_ttf ttf-bitstream-vera ttf-cheapskate ttf-liberation ttf-freefont ttf-arphic-uming ttf-baekmuk
 
